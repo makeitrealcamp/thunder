@@ -1,7 +1,11 @@
-<h1>Like or Not Like?</h1>
-<!-- Buttons -->
-	<button type="button" class="btn btn-success" id="go">Like</button>
-	<button type="button" class="btn btn-danger" id="go">Not Like</button>
+	<h1>Comienza ahora mismo!</h1>
+	<p>Elige aquellos amig@s que te gustan de forma anonima, te avisaremos si ambos coinciden, el resto va por tu cuenta.</p>
+	<!-- Buttons -->
+	<div class="row">
+		<%= link_to "Sign in", new_user_session_path, class: "btn btn-default" %>
+		<%= link_to "Sign up", new_user_registration_path, class: "btn btn-success" %>
+	</div>
+	<hr>
 <!-- Carrousel -->
 	<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
 		<!-- Indicators -->
@@ -12,7 +16,7 @@
 		</ol>
 
 		<!-- Wrapper for slides -->
-		<div class="carousel-inner" id="escoger">
+		<div class="carousel-inner" id="mujer">
 			<div class="item active">
 				<img src="http://i.huffpost.com/gen/1082546/thumbs/o-MOST-SUCCESSFUL-PEOPLE-WEEKENDS-WORK-HABITS-facebook.jpg" alt="mujer">
 				<div class="carousel-caption">

@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
-  devise_for :users
-  root 'friends#index'
+  get 'welcome/home'
 
+  devise_for :users
+  root 'welcome#home'
+
+  get 'friends/index'
   post 'friends/like'
 
   # The priority is based upon order of creation: first created -> highest priority.
