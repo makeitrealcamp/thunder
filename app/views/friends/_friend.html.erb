@@ -1,11 +1,13 @@
 <figure>
   <%= image_tag Gravatar.new(@friend.email).image_url(s: 300) %>
-  <p><%= @friend.name %>, <strong><%= @friend.age %> años</strong></p>
+  <p class="name"><%= @friend.name %>, <strong><%= @friend.age %> años</strong></p>
 
-  <button class="like">
-    <%= link_to "Me Gusta", friends_like_path(id: @friend, liked: true), method: :post %>
-  </button>
-  <button class="nolike">
-    <%= link_to "No Me Gusta", friends_like_path(id: @friend, liked: false), method: :post %>
-  </button>
+	<div class="row">
+	  <button type="button" class="like btn-success btn-lg col-xs-6">
+	    <%= link_to "Me Gusta", friends_like_path(id: @friend, liked: true), method: :post %>
+	  </button>
+	  <button type="button" class="nolike btn-danger btn-lg col-xs-6">
+	    <%= link_to "No Me Gusta", friends_like_path(id: @friend, liked: false), method: :post %>
+	  </button>
+  </div>
 </figure>
