@@ -14,6 +14,72 @@
  *= require_self
  */
 
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+.navbar-brand img {
+  width: 50px;
+}
+
+.navbar h1 {
+  display: inline-block;
+  color: #f00;
+}
+
+.user-picture {
+  width: 60px;
+  margin-top: 5px;
+}
+
+.container #sub-container {
+  width: 80%;
+}
+
+p.lead {
+  text-align: center;
+}
+
+figure {
+  text-align: center;
+}
+
+figure .row {
+  width: 60%;
+  margin: auto;
+}
+
+#sub-container > div > figure > div > button.like.btn-success.btn-lg.col-xs-6 > a,
+#sub-container > div > figure > div > button.nolike.btn-danger.btn-lg.col-xs-6 > a {
+  color: #fff;
+}
+
+p.name {
+  font-size: 18px;
+}
+
+.form-group {
+  width: 100%;
+  margin: auto;
+}
+
+.panel-footer {
+  width: 100%;
+  margin-top: 30px;
+  position: absolute;
+  bottom: 0;
+}
+
+#sub-container > div > div > div {
+  margin-bottom: 0;
+  padding: 10px;
+}
+
+.main {
+  margin-bottom: 40px;
+}
+
+
+/*
 body {
   background: linear-gradient(#000, #003366);
   background-repeat: no-repeat;
@@ -79,3 +145,5 @@ footer {
 #match figure {
   float: left;
 }
+
+*/

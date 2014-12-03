@@ -1,33 +1,72 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <title>Fzone</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  
 </head>
+
 <body>
   <header>
-    <% if user_signed_in? %>
-      <%= link_to "Salir", destroy_user_session_path, method: :delete %>
-      <%= image_tag Gravatar.new(current_user.email).image_url %>
-    <% end %>
-    <h1>TE GUSTA O NO</h1>
+
+    <nav class="navbar navbar-default" role="navigation">
+      <div class="container-fluid">
+        <div class="container">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="#">
+              <img alt="Brand" src="http://peroon.github.io/reveal_mini/img/thunder.png">
+            </a>
+          </div>
+
+          <!-- Collect the nav links, forms, and other content for toggling -->
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      
+            <h1>THUNDER <small style="color: #fbb">social pairing</small></h1>
+
+            <div class="nav navbar-nav pull-right">
+              <% if user_signed_in? %>
+                <%= image_tag Gravatar.new(current_user.email).image_url, class: 'user-picture' %>
+              <% end %>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><% if user_signed_in? %><%= current_user.name%><% end %><span class="caret"></span></a>
+              <ul class="dropdown-menu" role="menu">
+                <li><a href="#">Action</a></li>
+                <li><a href="#">Another action</a></li>
+                <li><a href="#">Something else here</a></li>
+                <li class="divider"></li>
+                <li><a href="#"><% if user_signed_in? %><%= link_to "Salir", destroy_user_session_path, method: :delete %><% end %></a></li>
+              </ul>
+
+            </div>
+
+          </div><!-- /.navbar-collapse -->
+        </div>
+      </div><!-- /.container-fluid -->
+    </nav>
   </header>
 
-  <p>Elige aquellos amig@s que te gustan de forma anonima, te avisaremos si ambos coinciden, el resto va por tu cuenta.</p>
-
-  <div class="content">
-    <% flash.each do |name, err|%>
-      <%= content_tag :div, err, class: name %>
-    <% end %>
-
-    <%= yield %>
+  <div class="container" id="main">
+    <div class="container" id="sub-container">
+      <p class="lead">Elige aquellos amig@s que te gustan de forma anonima, te avisaremos si ambos coinciden, el resto va por tu cuenta.</p>
+      <hr>
+      <div class="row info">
+        <% flash.each do |name, err|%><div class="alert alert-info" role="alert"><%= content_tag :div, err, class: name %><% end %>
+      </div>
+      <div class="row content">
+        <%= yield %><!-- CONTENIDO PRINCIPAL DE LA PAGINA-->
+      </div>
+      <hr>
+    </div>        
   </div>
 
-  <footer>
-    <p>Escribenos en twitter <a href="#">@tegustaono</a></p>
+  <footer class="panel-footer">
+    <div class="container-fuid"> 
+      <div class="container">   
+        <p>Escribenos en twitter <a href="#">@thunder</a></p>
+      </div>
+    </div>
   </footer>
-
 </body>
 </html>
