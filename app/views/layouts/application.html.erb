@@ -2,21 +2,89 @@
 <html>
 <head>
   <title>Fzone</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %> 
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+
+  <script src="http://code.jquery.com/jquery.js"></script>
+  
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+  <style>
+    .tbody{
+      background: url(http://i.huffpost.com/gen/963174/thumbs/o-RELATIONSHIP-AFTER-DIVORCE-facebook.jpg);
+      background-size: 100%;
+      background-repeat: no-repeat;
+    }
+
+    .nav.navbar-nav li{
+        font-size: 30px;
+    }
+
+    .form-horizontal {
+      margin: auto;
+    }
+
+    .nav.navbar-nav img {
+      height: 20px;
+    }
+
+    jumbotron {
+      background-color: transparent;
+    }
+
+    .container.session, .container.registrations, .container.friend{
+      margin: auto;
+      width: 450px;
+    }
+
+    footer{
+      position: absolute;
+      bottom: 0%;
+      right: 5%;
+      color: white;
+    }
+
+  </style>
 </head>
-<body>
+<body class="tbody">
   <header>
-    <% if user_signed_in? %>
-      <%= link_to "Salir", destroy_user_session_path, method: :delete %>
-      <%= image_tag Gravatar.new(current_user.email).image_url %>
-    <% end %>
-    <h1>TE GUSTA O NO</h1>
+
+   
+    <div class="<container-fluid></container-fluid>">
+      
+      <nav class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+              <li class="active"><a href="#"><img src="http://www.eteamz.com/thunderbaseball4/files/ThunderLogo.JPG"></a></li>
+              <li><a href="#"><strong>THUNDER</strong></a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              
+                <% if user_signed_in? %>
+                <li>
+                <%= link_to "Salir", destroy_user_session_path, method: :delete %>
+                </li>
+                <li>
+                <%= image_tag Gravatar.new(current_user.email).image_url %>
+                <% end %>
+              </li>
+            </ul>
+          </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+      </nav>
+
+    </div>
+
+
   </header>
 
-  <p>Elige aquellos amig@s que te gustan de forma anonima, te avisaremos si ambos coinciden, el resto va por tu cuenta.</p>
 
+
+
+<div class="container">
   <div class="content">
     <% flash.each do |name, err|%>
       <%= content_tag :div, err, class: name %>
@@ -24,9 +92,10 @@
 
     <%= yield %>
   </div>
+</div>
 
   <footer>
-    <p>Escribenos en twitter <a href="#">@tegustaono</a></p>
+    <p>Escribenos en twitter <a href="#">@tegustaono    </a></p>
   </footer>
 
 </body>

@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
+  get 'welcome/home'
+
   devise_for :users
-  root 'friends#index'
+  root 'welcome#home'
+  get 'friends/index'
+  get 'friends/index', as: 'user_root'
 
   post 'friends/like'
 
