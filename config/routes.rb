@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
-  devise_for :users
-  root 'friends#index'
 
+  devise_for :users, controllers: { registrations: "registrations" }
+
+  root 'friends#index'
   post 'friends/like'
 
   # The priority is based upon order of creation: first created -> highest priority.

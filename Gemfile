@@ -20,7 +20,8 @@ group :development do
   gem 'pry' #debugger
   gem 'spring'
   gem 'guard'
-  gem 'guard-livereload', require: false
+  gem 'guard-livereload', require: false 
+  gem 'letter_opener'
 end
 
 # Use ActiveModel has_secure_password
