@@ -7,27 +7,54 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <header>
-    <% if user_signed_in? %>
-      <%= link_to "Salir", destroy_user_session_path, method: :delete %>
-      <%= image_tag Gravatar.new(current_user.email).image_url %>
-    <% end %>
-    <h1>TE GUSTA O NO</h1>
-  </header>
+  
+  <div class="navbar navbar-static-top navbar-default">
+    <div class="container">
+      <div class="navbar-header">
+        <a href="/" class="navbar-brand">Thunder</a>
+      </div><!-- end navbar-header -->
+         
+          <div class="">
+            <ul class="nav navbar-nav navbar-right">
+              <% if user_signed_in? %>
+                <li>
+                  <%= link_to "Salir", destroy_user_session_path, method: :delete %>
+                </li> 
+                <li> 
+                  <%= image_tag Gravatar.new(current_user.email).image_url, class: "img-circle avatar" %>
+                <% end %>                
+                </li>
+            </ul><!-- end navbar-right -->
 
-  <p>Elige aquellos amig@s que te gustan de forma anonima, te avisaremos si ambos coinciden, el resto va por tu cuenta.</p>
+          </div><!-- end collapse -->
+    </div><!-- end container -->  
+  </div><!-- end navbar-fixed -->
+  
+  <div class="container">
+    <div class="row">
+      
+        <h1>TE GUSTA O NO</h1>
+        <p>Elige aquellos amig@s que te gustan de forma anonima, te avisaremos si ambos coinciden, el resto va por tu cuenta.</p>
+      
+    </div><!-- end row -->
 
-  <div class="content">
-    <% flash.each do |name, err|%>
-      <%= content_tag :div, err, class: name %>
-    <% end %>
+    <div class="row">
+          
+        <% flash.each do |name, err|%>
+          <%= content_tag :div, err, class: "alert alert-info" %>
+        <% end %>
+      
+      
+          <%= yield %>
+       
 
-    <%= yield %>
-  </div>
+    </div>
+  </div><!-- end container -->
 
-  <footer>
-    <p>Escribenos en twitter <a href="#">@tegustaono</a></p>
-  </footer>
-
+  
+      <div class="col-sm-12 text-right footer">
+      <p>Escribenos en twitter <a href="#">@tegustaono</a></p>
+      </div><!-- end col -->
+     
 </body>
 </html>

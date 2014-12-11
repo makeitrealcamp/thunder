@@ -10,6 +10,8 @@ gem 'jquery-rails'
 # gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0',          group: :doc
+gem 'bootstrap-sass'
+gem 'autoprefixer-rails'
 
 gem 'devise'
 gem 'gravatar-ultimate'
@@ -18,7 +20,8 @@ group :development do
   gem 'pry' #debugger
   gem 'spring'
   gem 'guard'
-  gem 'guard-livereload', require: false
+  gem 'guard-livereload', require: false 
+  gem 'letter_opener'
 end
 
 # Use ActiveModel has_secure_password
