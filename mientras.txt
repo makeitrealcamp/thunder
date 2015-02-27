@@ -1,0 +1,15 @@
+- tzinfo issue: http://tzinfo.github.io/datasourcenotfound
+
+#acá va match_email
+def match_email(notified,matched)
+  	@user = user.name
+  	@url  = 'https://github.com/heyjoeb/thunder'
+  	@name = matched.name
+  	mail(to: notified.email,
+  	subject: 'You have a match on Thunder!') 
+  end
+
+
+  #mails a respectivos matches
+      UserMailer.match_email(current_user, @friend).deliver
+      UserMailer.match_email(@friend, current_user).deliver

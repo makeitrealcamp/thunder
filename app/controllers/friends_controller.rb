@@ -15,6 +15,10 @@ class FriendsController < ApplicationController
     current_user.likes.create(friend_id: @friend.id, liked: like_or_unlike)
 
     if @friend.liked?(current_user)
+      #mails a respectivos matches
+      UserMailer.match_email(current_user, @friend).deliver
+      
+
       render :match
     else
       redirect_to root_path
